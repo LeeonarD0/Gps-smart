@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# GPS-SMART
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GPS-SMART** is an application under development that helps users plan their trips efficiently by choosing whether to save **time** or **money**. By intelligently analyzing routes using the Google Maps API, the app suggests the best decision based on the user's preferences.
 
-Currently, two official plugins are available:
+## Features
+- **Origin and Destination**: Users can input their starting point and desired destination.
+- **Save Time or Money**: Users choose their trip priority:
+  - **Time**: The fastest route.
+  - **Money**: The most economical route.
+- **Route Analysis**: Uses the Google Maps API to calculate the best route based on the user's choice.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **React**: JavaScript library for building the user interface.
+- **TypeScript**: A superset of JavaScript that adds static typing.
+- **Axios**: Library for making HTTP requests.
+- **Google Maps API (Routes)**: For route analysis and calculating time and distance.
+- **Zod**: For data validation and manipulation.
+- **TailwindCSS**: CSS framework for styling.
+- **Radix**: Accessible UI components to enhance the design.
 
-## Expanding the ESLint configuration
+## Project Status
+The application is currently in **development** and is being created as I deepen my knowledge of these technologies in parallel. The current focus is on:
+- Integrating with the Google Maps API.
+- Creating a simple and functional interface.
+- Validating user input data.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Next Steps
+- Finalize the route analysis logic.
+- Improve the interface design using Radix and TailwindCSS.
+- Implement tests to ensure code quality.
 
-- Configure the top-level `parserOptions` property like this:
+## Contribution
+Contributions are welcome! Feel free to open issues or submit pull requests in the repository.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
