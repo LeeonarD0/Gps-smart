@@ -11,15 +11,25 @@ const routeSchema = z.object({
 
 type RouteFormResponse = z.infer<typeof routeSchema>
 
+export interface dataRouteResponse {
+  originAddress: string,
+  destinAddress: string
+}
 
 
 export function InputGps() {
-  const { register, formState: { isSubmitting } } = useForm<RouteFormResponse>()
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm<RouteFormResponse>()
+
+  function handleRoute(data: dataRouteResponse) {
+    localStorage.setItem('originAddres', data.originAddress)
+    localStorage.setItem('destinAddress', data.destinAddress)
+    console.log(data)
+  }
 
 
   return (
     <div className="flex bg-[#253974] border border-[#3A4F97] gap-5 p-5 rounded-lg">
-      <form action="" >
+      <form action="" onSubmit={handleSubmit(handleRoute)} >
         <Flex direction='column' justify={"center"} gap={'2'} >
 
           <Flex direction='column' className="gap-3">
