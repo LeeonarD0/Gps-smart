@@ -6,7 +6,8 @@ import { z } from "zod";
 const routeSchema = z.object({
   originAddress: z.string(),
   destinAddress: z.string(),
-  TravelMode: z.enum(["DRIVE", "WALK", "TRANSIT", "BICYCLE"])
+  TravelMode: z.enum(["DRIVE", "WALK", "TRANSIT", "BICYCLE"]),
+  haveCar: z.boolean()
 })
 
 type RouteFormResponse = z.infer<typeof routeSchema>
@@ -16,14 +17,16 @@ export interface dataRouteResponse {
   destinAddress: string
 }
 
+interface sendDataRouteFn {
+  onSubmit: (data: dataRouteResponse) => void;
+}
 
-export function InputGps() {
+
+export function InputGps(  { onSubmit } : sendDataRouteFn) {
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<RouteFormResponse>()
 
   function handleRoute(data: dataRouteResponse) {
-    localStorage.setItem('originAddres', data.originAddress)
-    localStorage.setItem('destinAddress', data.destinAddress)
-    console.log(data)
+    onSubmit(data);
   }
 
 
